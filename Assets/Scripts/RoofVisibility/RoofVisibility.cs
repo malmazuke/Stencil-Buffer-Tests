@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Renderer))]
 public class RoofVisibility : MonoBehaviour
@@ -29,7 +30,6 @@ public class RoofVisibility : MonoBehaviour
 
     private void Apply()
     {
-        _renderer.enabled = _hideVotes == 0;
-        print("Hide votes: " + _hideVotes + "");
+        _renderer.shadowCastingMode = _hideVotes == 0 ? ShadowCastingMode.On : ShadowCastingMode.ShadowsOnly;
     }
 }
